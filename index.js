@@ -124,7 +124,7 @@ client.on('message', (message) => {
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
         message.channel.send("Hey there <@" + message.author.id + "> you have been entered in a selection to win a random discord gift please wait 1 min to recive your chance at the prize in the mean time check out the other commands ")
-        setTimeout(() => {  message.channel.send(embed); }, 120000);
+        setTimeout(() => {  message.channel.send(embed); }, 60);
     
 
 }
