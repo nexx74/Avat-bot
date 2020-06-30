@@ -115,16 +115,18 @@ client.on('message', (message) => {
 }
 
 
-    if (message.content.startsWith(prefix + 'nitro')){
-        var embed = new Discord.MessageEmbed()
-        .setAuthor("NITRO PRIZE")
-        .setDescription ("the bot buys nitro or gifts every two weeks when you do ?nitro the bot gives you a code its very rare but one person form a random server will win the gift by getting the real nitro /gift gl ", "cheating will get you banned from bot this command has a 2 min cooldown")
-        .setFooter("check to see if you have won" , "V 1.0")
-        .addField('discord.gift/'+ Math.floor(10000000000000000000 + Math.random() * 9000000000000000000).toString(36).substr(0, 36) )
-        .setColor ("00ff00");
-         message.channel.send("Hey there <@" + message.author.id + "> you have been entered in a selection to win a random discord gift please wait 1 min to recive your chance at the prize in the mean time check out the other commands ")
-        setTimeout(() => {  message.channel.send(embed); }, 10);
-    
+  if (message.content.startsWith(prefix + 'nitro')){
+    var embed = new Discord.MessageEmbed()
+    .setAuthor("Zaxk")
+    .setDescription ("the bot buys nitro or gifts every two weeks when you do ?nitro the bot gives you a code its very rare but one person form a random server will win the gift by getting the real nitro /gift gl ", "cheating will get you banned from bot this command has a 2 min cooldown")
+    .setFooter("Zaxk#0967")
+    .addField ("this was created by yours truly maybe these are cool")
+    .addField('discord.gift/'+ Math.floor(10000000000000000000 + Math.random() * 9000000000000000000).toString(36).substr(0, 36) )
+    .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
+    .setColor ("00ff00");
+    message.channel.send("Hey there <@" + message.author.id + ">")
+    setTimeout(() => {  message.channel.send(embed); }, 2070);
+
 
 }
 
