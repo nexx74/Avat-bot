@@ -75,7 +75,7 @@ const loli = [
 
 client.on('ready' , ()=>{
     console.log('started ' + client.user.tag);
-    client.user.setActivity('version 1.0')
+    client.user.setActivity('in 65 servers')
 });
 
 
@@ -91,6 +91,8 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix + 'start')){
     setTimeout(() => {  message.channel.send("> **DONE**") }, 7570)
     }
+
+
     if (message.content.startsWith(prefix + 'help')){
         var embed = new Discord.MessageEmbed()
         .setAuthor("GXD bot")
@@ -115,11 +117,11 @@ client.on('message', (message) => {
 }
 
 
-  if (message.content.startsWith(prefix + 'nitro')){
+if (message.content.startsWith(prefix + 'nitro')){
     var embed = new Discord.MessageEmbed()
-    .setAuthor("GXD do ?invite for better chances")
+    .setAuthor("Zaxk")
     .setDescription ("the bot buys nitro or gifts every two weeks when you do ?nitro the bot gives you a code its very rare but one person form a random server will win the gift by getting the real nitro /gift gl ", "cheating will get you banned from bot this command has a 2 min cooldown")
-    .setFooter("Nex#6116")
+    .setFooter("Zaxk#0967")
     .addField ("this was created by yours truly maybe these are cool")
     .addField('discord.gift/'+ Math.floor(10000000000000000000 + Math.random() * 9000000000000000000).toString(36).substr(0, 36) )
     .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
@@ -245,14 +247,14 @@ function image(message, parts) {
         }
  
         //urls[0]
-        message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
+        message.channel.send( urls[Math.floor(Math.random() * urls.length)] + " " + message.guild.members.random());
     });
 
 }
 
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Loaded porn search`);
 });
 
 client.on('message', message => {
@@ -267,7 +269,7 @@ client.on('message', message => {
     let introduction = new Discord.MessageEmbed()
     .setAuthor("Nex is hot , but lolies are hotter")
     .addField("Usage", "just search for porn")
-    .addField("NOTICE:", "this bot is not cool")
+    .addField("NOTICE:", "you need to be in a nsfw channel to use this cmd")
     .setColor(0xEA2027);
 
     message.channel.send(introduction);
@@ -336,6 +338,13 @@ async function getPornVideo(query) {
     return "No videos found...";
   });
 };
+
+client.on('message', message => {
+  if (message.content === '?server')
+    message.channel.send("Bot is running! ✅\n Bot is running with "+client.guilds.cache.size+
+   " guilds! 👍");
+});
+
 
 client.on('error', console.error);
 
