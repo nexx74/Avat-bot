@@ -117,9 +117,9 @@ client.on('message', (message) => {
 
   if (message.content.startsWith(prefix + 'nitro')){
     var embed = new Discord.MessageEmbed()
-    .setAuthor("Zaxk")
+    .setAuthor("GXD do ?invite for better chances")
     .setDescription ("the bot buys nitro or gifts every two weeks when you do ?nitro the bot gives you a code its very rare but one person form a random server will win the gift by getting the real nitro /gift gl ", "cheating will get you banned from bot this command has a 2 min cooldown")
-    .setFooter("Zaxk#0967")
+    .setFooter("Nex#6116")
     .addField ("this was created by yours truly maybe these are cool")
     .addField('discord.gift/'+ Math.floor(10000000000000000000 + Math.random() * 9000000000000000000).toString(36).substr(0, 36) )
     .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
