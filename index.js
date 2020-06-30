@@ -51,18 +51,25 @@ const JustChat = ["hi",
 "I can't change the direction of the wind, but I can adjust my sails to always reach my destination",
 "Perfection is not attainable, but if we chase perfection we can catch excellence.",
 ];
-const loli = [" https://us.rule34.xxx//images/3402/86ac1657b8f3019e15b5e5d04ab6e10fd6e95643.jpg",
-"https://us.rule34.xxx/thumbnails/3444/thumbnail_12289398f6130fc4ee63541d9be41988.jpg",
-"https://us.rule34.xxx/thumbnails/3439/thumbnail_262efff326305cf82b30b82aa5fc94453c91e3f6.jpg",
-"https://us.rule34.xxx/thumbnails/3392/thumbnail_d2cbe433baf6534353eee90629bec725.jpg",
-"https://us.rule34.xxx/thumbnails/3369/thumbnail_7f67d85a54d8cc77def4eb9317155b4e.jpg",
-"https://us.rule34.xxx/thumbnails/2883/thumbnail_dcf9108524443239c7114d48b74e040d.jpg",
-"https://us.rule34.xxx/thumbnails/3351/thumbnail_2f419b8e402580769dea833a3cb41f82.jpg",
-"https://us.rule34.xxx/thumbnails/3276/thumbnail_b324fdc571fcb391694e5cc1e4f7f0b8e46d4832.jpg",
-"https://us.rule34.xxx/thumbnails/2165/thumbnail_18b71a588b513cd3bdd103038ad66801694f1c2e.jpg",
-"https://us.rule34.xxx/thumbnails/2345/thumbnail_74cc1c7b19f7e34fe6b750f905e7fd3f.jp",
-"https://us.rule34.xxx/thumbnails/692/thumbnail_fbab6a1ab8ecd604751253944e42ad9f8bdac54e.jpg",
-""
+const loli = [
+    "https://media.discordapp.net/attachments/725879837218177064/727514013545791518/image0.jpg",
+
+    "https://media.discordapp.net/attachments/725879837218177064/727514005094006894/image0.jpg",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513994264313886/image0.jpg",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513972550402089/image0.png",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513962152984606/image0.jpg",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513958428180530/image0.jpg",
+    "https://media.discordapp.net/attachments/725879837218177064/727513952715538492/image0.jpg",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513950484168784/image0.jpg",
+    
+    "https://media.discordapp.net/attachments/725879837218177064/727513948013985832/image0.jpg",
+
+    "https://media.discordapp.net/attachments/725879837218177064/727513946826997771/image0.jpg"
 ];
 
 
