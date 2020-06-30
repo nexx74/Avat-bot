@@ -5,6 +5,10 @@ const { prefix, token } = require("./config.json");
 const Util = require('discord.js');
 const client = new Discord.Client;
 let msg = ""; 
+var cheerio = require("cheerio"); /* Used to extract html content, based on jQuery || install with npm install cheerio */
+var request = require("request"); /* Used to make requests to URLs and fetch response  || install with npm install request */
+
+ 
 const helloResponses = ["hi pp is googoo", "i like men do you", "tee tee hee hee",
 "What do you call a five year old with no friends? A sandy hook survivor.",
 "Jesus Christ fed 2,000 people with 5 loaves of bread and 2 fish, but Adolf Hitler made 6 million Jews toast.",
@@ -74,10 +78,11 @@ client.on('message', (message) => {
         .setFooter("Nex#6116")
         .addField ("im a cool bot commands below" , "didnt mean to call you stupid btw")
         .addField('coomands', '**{?start - starts the bot}** ' )
-        .addField('*',"**{?nitro - for nitro kinda}** " )
-        .addField("*","**{?funny - dark joke about your mom}**  " )
-        .addField("*","**{?help - help lol }** " )
-        .addField("*" , '**{nice quote - just chat its in the name}**')
+        .addField('~~~~~~~~~~~~',"**{?nitro - for nitro kinda}** " )
+        .addField("~~~~~~~~~~~~","**{?funny - dark joke about your mom}**  " )
+        .addField("~~~~~~~~~~~~","**{?help - help lol }** " )
+        .addField("~~~~~~~~~~~~" , '**{nice quote - just chat its in the name}**')
+        .addField("~~~~~~~~~~~~" , '**{!image - sends you an image}**')
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
         message.channel.send("Heres help <@" + message.author.id + ">")
@@ -147,5 +152,65 @@ client.on('message', message => {
     }
 });
 
+ 
+client.on("ready", function() {
+    console.log("logged in");
+});
+ 
+client.on("message", function(message) {
+ 
+    var parts = message.content.split(" "); // Splits message into an array for every space, our layout: "<command> [search query]" will become ["<command>", "search query"]
+ 
+    /* Simple command manager */
+    if (parts[0] === "!image") { // Check if first part of message is image command
+ 
+        // call the image function
+        image(message, parts); // Pass requester message to image function
+ 
+    }
+ 
+});
+ 
+function image(message, parts) {
+ 
+    /* extract search query from message */
+ 
+    var search = parts.slice(1).join(" "); // Slices of the command part of the array ["!image", "cute", "dog"] ---> ["cute", "dog"] ---> "cute dog"
+ 
+    var options = {
+        url: "http://results.dogpile.com/serp?qc=images&q=" + search,
+        method: "GET",
+        headers: {
+            "Accept": "text/html",
+            "User-Agent": "Chrome"
+        }
+    };
+    request(options, function(error, response, responseBody) {
+        if (error) {
+            // handle error
+            return;
+        }
+ 
+        /* Extract image URLs from responseBody using cheerio */
+ 
+        $ = cheerio.load(responseBody); // load responseBody into cheerio (jQuery)
+ 
+        // In this search engine they use ".image a.link" as their css selector for image links
+        var links = $(".image a.link");
+ 
+        // We want to fetch the URLs not the DOM nodes, we do this with jQuery's .attr() function
+        // this line might be hard to understand but it goes thru all the links (DOM) and stores each url in an array called urls
+        var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
+        console.log(urls);
+        if (!urls.length) {
+            // Handle no results
+            return;
+        }
+ 
+        // Send result
+        message.channel.send( urls[0] );
+    });
+ 
+}
 
 client.login("NzI2NTMyNzk3Njk0NjA3NDAx.Xvot1Q.eBnJtxNeo8RttUkhVItHpBXS18w");
