@@ -247,7 +247,7 @@ function image(message, parts) {
         }
  
         //urls[0]
-        message.channel.send( urls[Math.floor(Math.random() * urls.length)] + " " + message.guild.members.random());
+        message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
     });
 
 }
