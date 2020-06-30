@@ -7,7 +7,7 @@ const client = new Discord.Client;
 let msg = ""; 
 var cheerio = require("cheerio"); /* Used to extract html content, based on jQuery || install with npm install cheerio */
 var request = require("request"); /* Used to make requests to URLs and fetch response  || install with npm install request */
-
+const Pornsearch = require('pornsearch');
  
 const helloResponses = ["hi pp is googoo", "i like men do you", "tee tee hee hee",
 "What do you call a five year old with no friends? A sandy hook survivor.",
@@ -51,6 +51,19 @@ const JustChat = ["hi",
 "I can't change the direction of the wind, but I can adjust my sails to always reach my destination",
 "Perfection is not attainable, but if we chase perfection we can catch excellence.",
 ];
+const loli = [" https://us.rule34.xxx//images/3402/86ac1657b8f3019e15b5e5d04ab6e10fd6e95643.jpg",
+"https://us.rule34.xxx/thumbnails/3444/thumbnail_12289398f6130fc4ee63541d9be41988.jpg",
+"https://us.rule34.xxx/thumbnails/3439/thumbnail_262efff326305cf82b30b82aa5fc94453c91e3f6.jpg",
+"https://us.rule34.xxx/thumbnails/3392/thumbnail_d2cbe433baf6534353eee90629bec725.jpg",
+"https://us.rule34.xxx/thumbnails/3369/thumbnail_7f67d85a54d8cc77def4eb9317155b4e.jpg",
+"https://us.rule34.xxx/thumbnails/2883/thumbnail_dcf9108524443239c7114d48b74e040d.jpg",
+"https://us.rule34.xxx/thumbnails/3351/thumbnail_2f419b8e402580769dea833a3cb41f82.jpg",
+"https://us.rule34.xxx/thumbnails/3276/thumbnail_b324fdc571fcb391694e5cc1e4f7f0b8e46d4832.jpg",
+"https://us.rule34.xxx/thumbnails/2165/thumbnail_18b71a588b513cd3bdd103038ad66801694f1c2e.jpg",
+"https://us.rule34.xxx/thumbnails/2345/thumbnail_74cc1c7b19f7e34fe6b750f905e7fd3f.jp",
+"https://us.rule34.xxx/thumbnails/692/thumbnail_fbab6a1ab8ecd604751253944e42ad9f8bdac54e.jpg",
+""
+];
 
 
 client.on('ready' , ()=>{
@@ -82,7 +95,7 @@ client.on('message', (message) => {
         .addField("~~~~~~~~~~~~","**{?funny - dark joke about your mom}**  " )
         .addField("~~~~~~~~~~~~","**{?help - help lol }** " )
         .addField("~~~~~~~~~~~~" , '**{nice quote - just chat its in the name}**')
-        .addField("~~~~~~~~~~~~" , '**{!image - sends you an image}**')
+        .addField("~~~~~~~~~~~~" , '**{?image - sends you an image}**')
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
         message.channel.send("Heres help <@" + message.author.id + ">")
@@ -136,12 +149,31 @@ client.on('message', message => {
     }
 });
 
+client.on('message', message => {
+    if (message.content === '?loli') {
+        var response = loli [Math.floor(Math.random()*loli .length)];
+    message.channel.send(message.author.toString()+ " " + response)
+    }
+});
+
+client.on('message', message => {
+    if (message.content === 'porn') {
+       
+     const Pornsearch = require('pornsearch').search('ass');
+
+    Pornsearch.gifs()
+      .then(gifs => console.log(gifs));
+      message.channel.send(gifs)
+    }
+});
+
 
 client.on('message', messages => {
     if (messages.content === 'nice quote') {
         var responses = JustChat [Math.floor(Math.random()*JustChat .length)];
         messages.channel.send(messages.author.toString()+ " " + responses)
     }
+   
 });
 client.on('message', message => {
     if (message.content === '?funny') {
@@ -152,9 +184,10 @@ client.on('message', message => {
     }
 });
 
+
  
 client.on("ready", function() {
-    console.log("logged in");
+    console.log("Image searcher loaded");
 });
  
 client.on("message", function(message) {
@@ -162,7 +195,7 @@ client.on("message", function(message) {
     var parts = message.content.split(" "); // Splits message into an array for every space, our layout: "<command> [search query]" will become ["<command>", "search query"]
  
     /* Simple command manager */
-    if (parts[0] === "!image") { // Check if first part of message is image command
+    if (parts[0] === "?image") { // Check if first part of message is image command
  
         // call the image function
         image(message, parts); // Pass requester message to image function
@@ -191,26 +224,113 @@ function image(message, parts) {
             return;
         }
  
-        /* Extract image URLs from responseBody using cheerio */
+        
  
-        $ = cheerio.load(responseBody); // load responseBody into cheerio (jQuery)
+        $ = cheerio.load(responseBody); 
  
-        // In this search engine they use ".image a.link" as their css selector for image links
         var links = $(".image a.link");
  
-        // We want to fetch the URLs not the DOM nodes, we do this with jQuery's .attr() function
-        // this line might be hard to understand but it goes thru all the links (DOM) and stores each url in an array called urls
         var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
+
         console.log(urls);
         if (!urls.length) {
-            // Handle no results
+            
             return;
         }
  
-        // Send result
-        message.channel.send( urls[0] );
+        //urls[0]
+        message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
     });
- 
+
 }
+
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', message => {
+  const fullContents = message.content.trim().split(" ");
+
+  if (message.author.bot) {return false};
+  if (fullContents[0] !== "?porn") {return false};
+
+  // BOT INTRODUCTION
+
+  if (fullContents.length === 1) {
+    let introduction = new Discord.MessageEmbed()
+    .setAuthor("Nex is hot , but lolies are hotter")
+    .addField("Usage", "just search for porn")
+    .addField("NOTICE:", "this bot is not cool")
+    .setColor(0xEA2027);
+
+    message.channel.send(introduction);
+
+    return false;
+  };
+
+  // REJECT POSTS NOT FROM NSFW CHANNEL
+
+  if (!message.channel.nsfw) {return false};
+
+  // REQUESTS VIDEO / GIFS
+
+  if (fullContents[1] === "-v") {
+    getPornVideo(fullContents.slice(2, fullContents.length).join(" "))
+    .then(video => message.channel.send(video));
+  } else {
+    getPornGif(fullContents.slice(1, fullContents.length).join(" "))
+    .then(gif => message.channel.send(gif));
+  };
+});
+
+async function getPornGif(query) {
+  const embedMessage = new Discord.MessageEmbed();
+
+  return Pornsearch.search(query)
+  .gifs()
+  .then(gifs => {
+    const randomGif = gifs[Math.floor(Math.random() * Math.floor(gifs.length))];
+
+    embedMessage
+    .setImage(randomGif.url)
+    .setColor(0xEA2027);
+
+    return embedMessage;
+  })
+  .catch(err => {
+    console.error(err);
+    return "No GIFs found...";
+  });
+};
+
+async function getPornVideo(query) {
+  const embedMessage = new Discord.MessageEmbed();
+
+  return Pornsearch.search(query)
+  .videos()
+  .then(videos => {
+    videoList = videos;
+    videoList.some(function(v, i){
+      if (v.title.match("Ads By Traffic Junky")) videoList.splice(i,1);
+    });
+    const randomVideo = videoList[Math.floor(Math.random() * Math.floor(videoList.length))];
+
+    embedMessage
+    .setTitle(randomVideo.title)
+    .setURL(randomVideo.url)
+    .setDescription(randomVideo.duration)
+    .setImage(randomVideo.thumb)
+    .setColor(0xEA2027);
+
+    return embedMessage;
+  })
+  .catch(err => {
+    console.error(err);
+    return "No videos found...";
+  });
+};
+
+client.on('error', console.error);
 
 client.login("NzI2NTMyNzk3Njk0NjA3NDAx.Xvot1Q.eBnJtxNeo8RttUkhVItHpBXS18w");
