@@ -105,6 +105,7 @@ client.on('message', (message) => {
         .addField("--------------------------" , '**{?image - sends you an image}**')
         .addField("--------------------------" , '**{?loli - go to nsfw and do ?loli limited pics but working on it}**')
         .addField("--------------------------" , '**{?porn - crappy porn search try it out}**')
+        .addField("--------------------------" , '**{?invite - invite thr bot and try the ?nitro command}**')
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
         message.channel.send("Heres help <@" + message.author.id + ">")
@@ -151,6 +152,12 @@ client.on('message', message => {
       message.channel.send(helpEmbed);
     }
 });
+client.on('message', message => {
+    if (message.content === '?invite') {
+      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=726532797694607401&permissions=8&scope=bot");
+    }
+});
+
 client.on('message', message => {
     if (message.content === 'dark joke') {
         var response = helloResponses [Math.floor(Math.random()*helloResponses .length)];
