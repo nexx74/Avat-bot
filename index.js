@@ -97,7 +97,7 @@ client.on('message', (message) => {
         var embed = new Discord.MessageEmbed()
         .setAuthor("GXD bot")
         .setDescription ("This bot is only on version 1.0 and has not been finshed join our support server and request what you want")
-        .setFooter("Nex#6116")
+        .setFooter("Nex#7086")
         .addField ("im a cool bot commands below" , "didnt mean to call you stupid btw")
         .addField('coomands', '**{?start - starts the bot}** ' )
         .addField('--------------------------',"**{?nitro - for nitro kinda}** " )
@@ -136,7 +136,7 @@ if (message.content.startsWith(prefix + 'nitro')){
  if (message.content.startsWith(prefix + "info")) {
   var embed = new Discord.MessageEmbed()
   .setAuthor("GXD bot")
-  .setDescription ("work in progress made by nex#6116", "version 2.0")
+  .setDescription ("work in progress made by Nex#7086", "version 2.0")
   .setFooter("gxd")
   .addField ("Joke bot and a freind plus cool gifts you can win ", "oh and its got a nice name")
   .setThumbnail ("https://media1.tenor.com/images/8055d22f534c0792eb170d18cf4a3e2b/tenor.gif?itemid=13300784")
