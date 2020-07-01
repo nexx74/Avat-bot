@@ -157,7 +157,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if (message.content === '?invite') {
-      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=726532797694607401&permissions=8&scope=bot");
+      message.channel.send("https://discord.com/api/oauth2/authorize?client_id=728030155074961449&permissions=8&scope=bot");
     }
 });
 
