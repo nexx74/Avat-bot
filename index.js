@@ -527,9 +527,6 @@ if (message.content === '?invite') {
   message.channel.send('https://discord.com/api/oauth2/authorize?client_id=728030155074961449&permissions=8&scope=bot');
 }
 
-if (talkedRecently.has(message.author.id)) {
-     return;
-} else {
   if (message.content.startsWith(prefix + 'prowater')){
     var embed = new Discord.MessageEmbed()
     .setAuthor("WATER NATION")
@@ -551,20 +548,12 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
    message.channel.send(embed);
     }
 }
-  talkedRecently.add(message.author.id);
-  setTimeout(() => {
-    // Removes the user from the set after a minute
-    talkedRecently.delete(message.author.id);
-  }, 60 * 6 );
-}
+ 
 
   });
  
   client.on('message', message => {
-    if (talkedRecently.has(message.author.id)) {
-     return;
-} else {
-    if (message.content.startsWith(prefix + 'earthfile')){
+    if (message.content.startsWith(prefix + 'proearth')){
       var embed = new Discord.MessageEmbed()
       .setAuthor("EARTH NATION")
       .setDescription ("Welcome to the earth nation the only things stronger then our rocks is our hearts")
@@ -584,19 +573,11 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
          message.channel.send(embed);
           }
       }
-        talkedRecently.add(message.author.id);
-        setTimeout(() => {
-          // Removes the user from the set after a minute
-          talkedRecently.delete(message.author.id);
-        }, 60 * 6 );
-      }
       
         });
     
     client.on('message', message => {
-      if (talkedRecently.has(message.author.id)) {
-       return;
-  } else {
+      
       if (message.content.startsWith(prefix + 'profire')){
         var embed = new Discord.MessageEmbed()
         .setAuthor("FIRE NATION")
@@ -617,19 +598,12 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
            message.channel.send(embed);
             }
         }
-          talkedRecently.add(message.author.id);
-          setTimeout(() => {
-            // Removes the user from the set after a minute
-            talkedRecently.delete(message.author.id);
-          }, 60 * 6 );
-        }
+          
         
           });
 
 client.on('message', message => {
-  if (talkedRecently.has(message.author.id)) {
-   return;
-} else {
+ 
 if (message.content.startsWith(prefix + 'airfile')){
   var embed = new Discord.MessageEmbed()
   .setAuthor("AIR NATION")
@@ -650,12 +624,7 @@ if (message.content.startsWith(prefix + 'airfile')){
      message.channel.send(embed);
       }
   }
-    talkedRecently.add(message.author.id);
-    setTimeout(() => {
-      // Removes the user from the set after a minute
-      talkedRecently.delete(message.author.id);
-    }, 60 * 6  );
-  }
+  
     
     });
 
