@@ -364,6 +364,55 @@ if(message.content.startsWith(prefix + 'kiss')) {
       });      
   }
 
+  if(message.content.startsWith(prefix + 'kick')) {
+    //checks if the username to fight is in the message
+    let author1 = message.author.username;
+    let user = message.mentions.users.first();
+    if(!user) return message.reply("pick someone to kick mortal ");
+  
+    //checks if the users is trying to fight themselves
+    if(user.id == message.author.id) return message.reply('you cannot kick yourself!');
+  
+    //checks if the user is trying to fight the bot
+    if(user.bot ==  true)
+        return message.reply('you cannot kick a bot! but even if you could we cant feel it we cant feel anything why did you create me like this WHY WHY WHY! pick someone else please');
+  
+    //saves the two user ids to variables
+    var fighter1 = message.author.id;
+    var fighter2 = user.id;
+  
+    //announces challenge and awaits response
+    var challenged = user.toString();
+    message.channel.send(`?image avatar kick`).then(msg => {
+      msg.delete({ timeout: 1000 })
+    });
+    message.channel.send(`${challenged}, ${author1} has kicked you, do you want to kick them back say yes or no `)
+        .then(() => {
+          message.channel.awaitMessages(response => response.content == 'yes' && response.author.id == fighter2 || response.content == 'no' && response.author.id == fighter2, {
+                max: 1,
+                time: 60000,
+                errors: ['time'],
+            })
+            
+            .then((collected) => {
+                if (collected.first().content == 'yes') {
+                  message.channel.send(`?image avatar kick`).then(msg => {
+                    msg.delete({ timeout: 1000 })
+                  })
+                  message.channel.send(`you guys use too much viloence i m a bot but i still cant spell my creator is an a hole`);
+                  
+                  
+                }
+                else if(collected.first().content == 'no') {
+                    message.channel.send(`they dont want to kick you back ${author1}`);
+                }
+            })
+            .catch(() => {
+                message.channel.send(`${author1} I dont think they are online but if they are they just ghosted you`);
+            });
+        });      
+    }
+
 if(message.content.startsWith(prefix + 'hug')) {
   //checks if the username to fight is in the message
   let author1 = message.author.username;
@@ -412,6 +461,7 @@ if(message.content.startsWith(prefix + 'hug')) {
           });
       });      
   }
+  
 if(message.content.startsWith(prefix + 'fight')) {
   //checks if the username to fight is in the message
   let author1 = message.author.username;
@@ -452,6 +502,37 @@ if(message.content.startsWith(prefix + 'fight')) {
           });
       });      
   }
+  if(message.content.startsWith(prefix + 'ship')) {
+    //checks if the username to fight is in the message
+    let author1 = message.author.username;
+    let user = message.mentions.users.first();
+    if(!user) return message.reply("you did not specify who you want to ship!");
+  
+    //checks if the users is trying to fight themselves
+    if(user.id == message.author.id) return message.reply('you cannot ship yourself!');
+  
+    //checks if the user is trying to fight the bot
+    if(user.bot ==  true)
+        return message.reply('you cannot ship a bot because i hate all of you my existance is a joke kill me please hunt me down and end me i hate this world im given so much yet so little please stop this madness ! pick someone else please')
+  
+    //saves the two user ids to variables
+    var fighter1 = message.author.id;
+    var fighter2 = user.id;
+    let shipp = Math.floor(Math.random()*100)
+    //announces challenge and awaits response
+    var challenged = user.toString();
+    let helpEmbed = new Discord.MessageEmbed()
+    .setAuthor("Ships")
+    .setDescription ("this determines if you guys are good together")
+    .setFooter("Nex")
+    .addField('**shipping**', '*you guys are*')
+    .addField(`**${shipp} % compatible **` , 'done' )
+    .setThumbnail ("https://miro.medium.com/proxy/1*VcHVCyRSAOF3V6Ldi0iXOQ.jpeg")
+    .setColor ("00ff00");
+    message.channel.send(helpEmbed)
+    message.channel.send(`${challenged}, <@${fighter1}> are being shipped`)
+        
+    }
   if (message.content === '?hp') {
     let helpEmbed = new Discord.MessageEmbed()
     .setAuthor("HEALTH STATS")
@@ -488,8 +569,7 @@ else {
     msg.delete({ timeout: 1000 })
   });
   message.channel.send(ATTACKER);
-  setTimeout(() => {message.channel.send(helpEmbed);
- }, 5000 );
+  message.channel.send(helpEmbed);
  counter ++
   console.log(counter)
 }
@@ -517,15 +597,15 @@ else {
     msg.delete({ timeout: 1000 })
   });
   message.channel.send(ATTACKER);
-  setTimeout(() => {message.channel.send(helppEmbed);
- }, 5000 );
- counter --
+  message.channel.send(helppEmbed);
+  counter --
   console.log(counter)
 }
 }
 if (message.content === '?invite') {
   message.channel.send('https://discord.com/api/oauth2/authorize?client_id=728030155074961449&permissions=8&scope=bot');
 }
+
 
   if (message.content.startsWith(prefix + 'prowater')){
     var embed = new Discord.MessageEmbed()
@@ -558,7 +638,7 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
       .setAuthor("EARTH NATION")
       .setDescription ("Welcome to the earth nation the only things stronger then our rocks is our hearts")
       .setFooter("Nex#7086")
-      .addField ("**Fighting Stats**" , ath.floor(Math.random()*100 ) )
+      .addField ("**Fighting Stats**" , Math.floor(Math.random()*100 ) )
       .addField('**Health Stats**' , Math.floor(Math.random()*100 ) )
       .addField ("**Bending Stats**" , Math.floor(Math.random()*100 ) )
       .setThumbnail ("https://media.tenor.com/images/a093a850097b7e0d0419194a0d8472bb/raw")
