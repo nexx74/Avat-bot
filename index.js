@@ -558,7 +558,7 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
       .setAuthor("EARTH NATION")
       .setDescription ("Welcome to the earth nation the only things stronger then our rocks is our hearts")
       .setFooter("Nex#7086")
-      .addField ("**Fighting Stats**" ,Math.random(Math.floor()*100 ) )
+      .addField ("**Fighting Stats**" , ath.floor(Math.random()*100 ) )
       .addField('**Health Stats**' , Math.floor(Math.random()*100 ) )
       .addField ("**Bending Stats**" , Math.floor(Math.random()*100 ) )
       .setThumbnail ("https://media.tenor.com/images/a093a850097b7e0d0419194a0d8472bb/raw")
