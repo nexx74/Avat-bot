@@ -82,6 +82,7 @@ client.on('message', (message) => {
       .addField("--------------------------" , '** ?airfire -** *stats after you join AIR NATION*')
       .addField("--------------------------" , '** ?proearth -** *stats after you join EARTH NATION*')
       .addField("--------------------------" , '** ?prowater -** *stats after you join WATER NATION*')
+        .addField("--------------------------" , '  **?website -** *website of the bot*')
       .addField("--------------------------" , '** ?invite** -** *invite link for the bot*')
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
@@ -670,6 +671,9 @@ else {
 }
 if (message.content === '?invite') {
   message.channel.send('https://discord.com/api/oauth2/authorize?client_id=728030155074961449&permissions=8&scope=bot');
+}
+  if (message.content === '?website') {
+  message.channel.send('https://rb.gy/zfvsuw');
 }
 
 
