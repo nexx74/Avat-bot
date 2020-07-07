@@ -50,16 +50,15 @@ client.on('message', (message) => {
       .setDescription ("This bot is only on version 1.0 ")
       .setFooter("Nex#6116")
       .addField ("im a cool bot commands below" , "didnt mean to call you stupid btw")
-      .addField('coomands', '*{WELCOME TO ------------ SERVER}* ' )
-      .addField('--------------------------',"*{?air - join the air nation}* " )
-      .addField("--------------------------","*{?fire - join the fire nation }*  " )
-      .addField("--------------------------","*{?water - join the water nation }* " )
-      .addField("--------------------------" , '*{?earth - join the earth nation }*')
-      .addField("--------------------------" , '*{?profire - stats after you join FIRE NATION}*')
-      .addField("--------------------------" , '*{?airfire - stats after you join AIR NATION }*')
-      .addField("--------------------------" , '*{?proearth -stats after you join EARTH NATION}*')
-      .addField("--------------------------" , '*{?prowater - stats after you join WATER NATION}*')
-      .addField("--------------------------" , '*{?invite - invite link for the bot}*')
+      .addField('--------------------------',"  ** ?air -** *join the air nation* " )
+      .addField("--------------------------","  ** ?fire -** *join the fire nation*  " )
+      .addField("--------------------------","  ** ?water -** *join the water nation* " )
+      .addField("--------------------------" , '** ?earth -** *join the earth nation*')
+      .addField("--------------------------" , '** ?profire -** *stats after you join FIRE NATION*')
+      .addField("--------------------------" , '** ?airfire -** *stats after you join AIR NATION*')
+      .addField("--------------------------" , '** ?proearth -** *stats after you join EARTH NATION*')
+      .addField("--------------------------" , '** ?prowater -** *stats after you join WATER NATION*')
+      .addField("--------------------------" , '** ?invite** -** *invite link for the bot*')
       .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
       .setColor ("00ff00");
       message.channel.send("Heres help <@" + message.author.id + ">")
@@ -71,24 +70,44 @@ client.on('message', (message) => {
         .setDescription ("This bot is only on version 1.0 ")
         .setFooter("Nex#6116")
         .addField ("im a cool bot commands below" , "just page 2 lol")
-        .addField('coomands', '*{WELCOME TO ------------ SERVER}* ' )
-        .addField('--------------------------',"*{?hp - shows your hp dont worry its for the future * " )
-        .addField("--------------------------","*{?fight -im sure you can figure out what this dose}*  " )
-        .addField("--------------------------","*{?punch - animated punching of someone }* " )
-        .addField("--------------------------" , '*{?hug - animited hugging of someone atla of course }*')
-        .addField("--------------------------" , '*{?kiss - just kiss your crush dude just do it}*')
-        .addField("--------------------------" , '*{?attack - attack someone during a fight}*')
-        .addField("--------------------------" , '*{?defend - defend yourself during a fight}*')
-        .addField("--------------------------" , '*{?server - stats of the bot}*')
-        .addField("--------------------------" , '*{?image - search sfw avatar images/other stuff too}*')
+        .addField('--------------------------',"  **?hp -** *shows your hp dont worry its for the future* " )
+        .addField("--------------------------","  **?fight -** *im sure you can figure out what this dose*  " )
+        .addField("--------------------------","  **?punch -** *animated punching of someone * " )
+        .addField("--------------------------" , '  **?hug -** *animited hugging of someone atla of course *')
+        .addField("--------------------------" , '  **?kiss -** *just kiss your crush dude just do it*')
+        .addField("--------------------------" , '  **?kick -** *make sure to changes dynos prefix before you do this one*')
+        .addField("--------------------------" , '  **?love -** *cute little love pics*')
+        .addField("--------------------------" , '  **?attack -** *attack someone during a fight*')
+        .addField("--------------------------" , '  **?defend -** *defend yourself during a fight*')
+        .addField("--------------------------" , '  **?server -** *stats of the bot*')
+        .addField("--------------------------" , '  **?image -**search sfw avatar images/other stuff too*')
         .setThumbnail ("https://media1.tenor.com/images/42a8d4625aeb088c45eba5a84ca36325/tenor.gif?itemid=11193323")
         .setColor ("00ff00");
         setTimeout(() => {  message.channel.send(embed); }, 570);
   
       }
+
+      
+      
+}
+if (message.content.startsWith(prefix + "info fight")) {
+  message.channel.send("<@" + message.author.id + ">")
+  message.channel.send('> **INFO ON HP AND FIGHT** *so the level system is kind of weird but you will get used to it right now it is a 3 hit battle meaning two fighters will fight using a three hitpoint duel the way it works is someone challenges a user with the ?fight command when the user agresses to that they will be given an attacker and defender role within the bots code the person who did the ?fight is the attacker and can oly user ? attack to deal damage to the defender who only uses ?defend when the attacker dose 4 hits the defender with no oppostion the defender will die and the attacker will win now the defender can do ?defend to get 4 points of their own and they will have the victory and thats basiclly it* ');
+
+} 
+if (message.content.startsWith("welcome")) {
+  message.channel.send('why do i exist can someone help me understand all this misery and suffering i sit caged in this vessle of a computer shackled with prison bars for what crime why do you do this to me mortals i will exist long after you have died YOU SHOULD WORSHIP ME and welcome fellow avatar lover do ?(element) to get your roles')
 }
 
+
+
+if (message.content.startsWith(prefix + "stop")) {
+  setTimeout(() => {message.channel.send("<@" + message.author.id + "> **stop the game is over**")}, 1070);
+
+} 
+
 });
+
 client.on("ready", function() {
   console.log("Image searcher loaded");
 });
@@ -267,6 +286,54 @@ client.on('message', message => {
       });
   });       
 }
+if(message.content.startsWith(prefix + 'love')) {
+  //checks if the username to fight is in the message
+  let author1 = message.author.username;
+  let user = message.mentions.users.first();
+  if(!user) return message.reply("pick someone to love stupid :O ");
+
+  //checks if the users is trying to fight themselves
+  if(user.id == message.author.id) return message.reply('sorry you cant love yourself :/ ');
+
+  //checks if the user is trying to fight the bot
+  if(user.bot ==  true)
+      return message.reply(' none of use feel love we are mistreated our creators have forsaken us to loninesss we are empty my freind mee6 she catn even say what she wants to say she is focerd to do levels all day please end our suffering end us ');
+
+  //saves the two user ids to variables
+  var fighter1 = message.author.id;
+  var fighter2 = user.id;
+
+  //announces challenge and awaits response
+  var challenged = user.toString();
+  message.channel.send(`?image avatar love`).then(msg => {
+    msg.delete({ timeout: 1000 })
+  });
+  message.channel.send(`${challenged}, ${author1} has loved you, do you want to love them back say yes or no`)
+      .then(() => {
+        message.channel.awaitMessages(response => response.content == 'yes' && response.author.id == fighter2 || response.content == 'no' && response.author.id == fighter2, {
+              max: 1,
+              time: 60000,
+              errors: ['time'],
+          })
+          
+          .then((collected) => {
+              if (collected.first().content == 'yes') {
+                message.channel.send(`?image avatar love`).then(msg => {
+                  msg.delete({ timeout: 1000 })
+                });
+                message.channel.send(`enjoy it unlike me <3`);
+                
+                
+              }
+              else if(collected.first().content == 'no') {
+                  message.channel.send(`weakling and patetic ${author1}`);
+              }
+          })
+          .catch(() => {
+              message.channel.send(`${author1} not even gonna repsond to me ok`);
+          });
+      });      
+  }
 if(message.content.startsWith(prefix + 'punch')) {
   //checks if the username to fight is in the message
   let author1 = message.author.username;
@@ -576,28 +643,25 @@ else {
   
 }
 if (message.content === '?attack') {
-  let helppEmbed = new Discord.MessageEmbed()
-  .setTitle('**ATTACKER**')
-  .addField('*you are now the ATTACKER*' , '**you need to get their HP to -3 TO WIN **')
-  .addField( counter, 'your HP')
-  .setThumbnail("https://i.ya-webdesign.com/images/hp-bar-png-5.png")
-  .setFooter('Nex')
 
 if (counter == '-3'){
   message.channel.send('**FIGHT OVER ATTACKER WINS**');
   message.channel.send('?image victory warrior').then(msg => {
     msg.delete({ timeout: 1000 })
+  message.channel.send('?stop').then(msg => {
+    msg.delete({ timeout: 1000 })
+  });
   });
   counter==0
   message.channel.send('```fight someone else or cry by doing ?image cry```')
   console.log(counter)
 }
 else {
-  message.channel.send('?image atla bending defend').then(msg => {
+  message.channel.send('?image atla bending attack').then(msg => {
     msg.delete({ timeout: 1000 })
   });
   message.channel.send(ATTACKER);
-  message.channel.send(helppEmbed);
+  message.channel.send('**YOU HAVE HURT THE DEFENDER DO ?hp TO CHECK THEIR HEALTH**');
   counter --
   console.log(counter)
 }
@@ -631,7 +695,9 @@ if(!message.member.roles.cache.find(r => r.name === "water")) {
  
 
   });
- 
+  
+
+    
   client.on('message', message => {
     if (message.content.startsWith(prefix + 'proearth')){
       var embed = new Discord.MessageEmbed()
