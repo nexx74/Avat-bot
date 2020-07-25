@@ -1,0 +1,48 @@
+{
+  "name": "plorix-bot",
+  "version": "1.0.0",
+  "description": " ",
+  "main": "index.js",
+  "scripts": {
+    "test": " ",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": " "
+  },
+  "keywords": [],
+  "author": "nexx",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "db": "^2.0.2",
+    "discord.js": "^12.0.2",
+    "discord.js-musicbot-addon": "^13.9.1",
+    "fs": "0.0.1-security",
+    "generate-password": "^1.5.1",
+    "gif-search": "^2.1.0",
+    "got": "^11.5.1",
+    "humanize-duration": "^3.23.1",
+    "opusscript": "0.0.7",
+    "parse-ms": "^2.1.0",
+    "querystring": "^0.2.0",
+    "quick": "0.0.6",
+    "quick-db": "^1.0.5",
+    "quick.db": "^7.1.1",
+    "request": "^2.88.2",
+    "snekfetch": "^4.0.4",
+    "webhook-discord": "^3.5.1"
+  },
+  "node": "8.x",
+  "discord.js": "^11.3.2",
+  "common-tags": "^1.8.0",
+  "gif-search": "^2.0.1",
+  "google-translate-api": "^2.3.0",
+  "math-expression-evaluator": "^1.2.17",
+  "node-gyp": "^3.7.0",
+  "opusscript": "^0.0.6",
+  "queue": "^4.4.2",
+  "rebuild": "^0.1.2",
+  "request": "^2.88.0"
+}
