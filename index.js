@@ -56,7 +56,7 @@ message.channel.send(message.author.toString()+ "** Do you want to join our serv
     .then((collected) => {
         if (collected.first().content == 'yes') {
             message.channel.send(`*welcome to the server wait a few seconds to get full acess*`);
-            let mainRole = message.guild.roles.cache.find(role => role.name === "member");
+            let mainRole = message.guild.roles.cache.find(role => role.name === "Stars");
       message.member.roles.add(mainRole.id);
       console.log ("done");
         }
@@ -325,7 +325,7 @@ if(message.content.startsWith(prefix + 'mute')) {
       var person  = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
       if(!person) return  message.reply("I CANT FIND THE USER " + person)
     
-      let role = message.guild.roles.cache.find(role => role.name === "Member");
+      let role = message.guild.roles.cache.find(role => role.name === "Stars");
       let mainrole = message.guild.roles.cache.find(role => role.name === "Muted");
     
       if(!role) return message.reply("Couldn't find the unmute role.")
