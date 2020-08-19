@@ -675,4 +675,4 @@ message.channel.send({embed});
 	  
 });
  
-client.login("NzM0ODI4NTIyNDQyNTg4MjA4.Xy8CWw.7op1EC_cmXsFRs7B59VsXYIaxX4")
+client.login("NzM0ODI4NTIyNDQyNTg4MjA4.Xz1xZw.sHrC-krazN31vrCVxpF1bPe_KQE")
