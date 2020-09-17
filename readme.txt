@@ -1,6 +1,6 @@
 # Avat-Bot
 
-Foobar is a Python library for dealing with word pluralization.
+This was my first bot feel free to make fun of me on discord. ;)
 
 ## Installation
 
